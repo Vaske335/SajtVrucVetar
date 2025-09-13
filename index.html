@@ -1,0 +1,470 @@
+<!DOCTYPE html>
+<html lang="sr-RS">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Vruc Vetar Barbershop — Vranje</title>
+  <meta name="description" content="Vruc Vetar je tradicionalni barbershop u Vranju. Klasična i moderna šišanja, brijanje i nega brade." />
+  <meta name="theme-color" content="#0a0a0a" />
+  <!-- Open Graph -->
+  <meta property="og:title" content="Vruc Vetar — Muski frizerski salon, Vranje" />
+  <meta property="og:description" content="Tradicionalni barbershop u Vranju — šišanje, brijanje i nega brade." />
+  <meta property="og:type" content="website" />
+  <meta property="og:locale" content="sr_RS" />
+  <meta property="og:image" content="/assets/hero.png" />
+  <link rel="canonical" href="https://vrucvetar.com" />
+
+  <!-- Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Unbounded:wght@400;600;800&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+  <style>
+    :root{
+      --bg:#0b0b0c;
+      --card:#121214;
+      --muted:#808089;
+      --text:#f5f5f7;
+      --gold:#d4af37;
+      --gold-2:#c49a26;
+      --accent:#b6862f;
+      --danger:#e85050;
+      --radius:12px;
+      --shadow:0 8px 20px rgba(0,0,0,.28);
+      --max:1200px;
+    }
+
+    *{box-sizing:border-box}
+    html{scroll-behavior:smooth}
+    body{
+      margin:0; background:radial-gradient(900px 540px at 80% -10%, #1a1a1d 0, #0b0b0c 40%), var(--bg);
+      color:var(--text); font-family:Inter, system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif; line-height:1.6;
+      -webkit-font-smoothing:antialiased; -moz-osx-font-smoothing:grayscale;
+    }
+    img{max-width:100%; display:block}
+    a{color:inherit; text-decoration:none}
+    .container{width:100%; max-width:var(--max); margin:0 auto; padding:0 20px}
+
+    /* Top bar */
+    .topbar{background:#0d0d0f; color:#c9c9cf; border-bottom:1px solid rgba(255,255,255,.03); font-size:.9rem}
+    .topbar .wrap{display:flex; gap:20px; align-items:center; justify-content:space-between; padding:8px 0}
+    .topbar a{opacity:.95}
+
+    /* Header */
+    header{position:sticky; top:0; z-index:40; backdrop-filter:saturate(120%) blur(6px); background:rgba(10,10,12,.6); border-bottom:1px solid rgba(255,255,255,.04)}
+    .nav{display:flex; align-items:center; justify-content:space-between; padding:12px 0}
+    .brand{display:flex; align-items:center; gap:12px}
+    .logo{
+      width:44px; height:44px; border-radius:10px; display:grid; place-items:center; background:linear-gradient(135deg, var(--gold), var(--gold-2)); color:#111; font-weight:800; font-family:Unbounded;
+      box-shadow:0 6px 18px rgba(212,175,55,.25);
+    }
+    .brand h1{font-family:Unbounded; font-size:1rem; letter-spacing:.3px; margin:0}
+    nav ul{display:flex; list-style:none; gap:18px; margin:0; padding:0}
+    nav a{padding:8px 12px; border-radius:10px; transition:.18s ease; font-weight:500}
+    nav a:hover{background:rgba(255,255,255,.02)}
+    .cta{display:flex; gap:10px; align-items:center}
+    .btn{display:inline-flex; align-items:center; gap:10px; padding:10px 14px; border-radius:10px; border:1px solid #26262b; background:#131316; transition:.18s ease; font-weight:600}
+    .btn:hover{transform:translateY(-1px);}
+    .btn-gold{background:linear-gradient(135deg,var(--gold),var(--gold-2)); color:#141412; border:none; box-shadow:0 8px 20px rgba(212,175,55,.18)}
+    .btn-ghost{background:transparent; border:1px solid #2a2a30}
+
+    .hamburger{display:none; flex-direction:column; gap:5px; padding:8px; border:1px solid #2a2a2f; border-radius:10px}
+    .hamburger span{width:22px; height:2px; background:#e6e6ea}
+
+    /* Ensure mobile menu is hidden by default (fix duplicate nav on desktop) */
+    .mobile{display:none}
+
+    /* Hero */
+    .hero{position:relative; min-height:78vh; display:grid; place-items:center; overflow:hidden}
+    .hero::before{
+      content:""; position:absolute; inset:0; background:url('assets/hero.png') center/cover no-repeat; filter:grayscale(.18) brightness(.55); transform:scale(1.03); will-change:transform; transition:transform 8s ease; animation:kenburns 18s ease-in-out infinite alternate;
+    }
+    .hero::after{content:""; position:absolute; inset:0; background: radial-gradient(600px 260px at 14% 12%, rgba(0,0,0,.45), transparent 45%), linear-gradient(to bottom, rgba(0,0,0,.35), rgba(0,0,0,.6)); pointer-events:none}
+    .hero .content{position:relative; z-index:2; text-align:center; padding:60px 0; display:grid; place-items:center}
+    .hero .content .panel{background:linear-gradient(180deg, rgba(4,4,6,.55), rgba(8,8,10,.35)); padding:28px; border-radius:12px; backdrop-filter:blur(6px) saturate(120%); box-shadow:0 10px 30px rgba(0,0,0,.5); max-width:920px}
+    .hero .content .panel .title{margin:6px 0}
+
+    .kicker{color:var(--gold); font-weight:700; letter-spacing:.18em; text-transform:uppercase; font-size:.78rem}
+    .title{font-family:Unbounded; font-size:clamp(1.8rem, 4.2vw, 2.8rem); line-height:1.05; margin:.4rem 0 1rem; text-shadow:0 8px 30px rgba(0,0,0,.6)}
+    .title--brand{display:block; font-size:1.02em; color:var(--gold); font-weight:800; letter-spacing:.2px; margin-top:6px}
+    .subtitle{max-width:760px; margin:0 auto 22px; color:#d3d3d7}
+
+    .hero .actions{display:flex; justify-content:center; gap:12px; flex-wrap:wrap}
+
+    /* Hero animations */
+    @keyframes kenburns{from{transform:scale(1.03)}to{transform:scale(1.08)}}
+    @keyframes fadeUp{from{opacity:0; transform:translateY(10px)}to{opacity:1; transform:translateY(0)}}
+    .title, .subtitle, .hero .actions{opacity:0; transform:translateY(8px)}
+    .title{animation:fadeUp .7s ease .12s both}
+    .subtitle{animation:fadeUp .7s ease .26s both}
+    .hero .actions{animation:fadeUp .7s ease .42s both}
+
+    /* Sections */
+    section{padding:60px 0}
+    .section-title{display:flex; align-items:center; justify-content:space-between; gap:10px; margin-bottom:18px}
+    .section-title h2{font-family:Unbounded; font-size:1.45rem; margin:0}
+    .section-title p{color:#bdbdc4; margin:0}
+
+    /* Services */
+    .grid{display:grid; gap:14px}
+    .services{grid-template-columns:repeat(12, 1fr)}
+    .service-card{grid-column: span 4 / span 4; background:linear-gradient(180deg,#141416,#101013); border:1px solid rgba(255,255,255,.03); padding:18px; border-radius:var(--radius); box-shadow:var(--shadow); position:relative; overflow:hidden}
+    .service-card .price{position:absolute; top:14px; right:14px; background:linear-gradient(135deg,var(--gold),var(--gold-2)); color:#111; font-weight:800; padding:8px 10px; border-radius:999px; font-size:.85rem}
+    .service-card h3{margin:8px 0 6px}
+    .service-card p{color:#bcbcc4; margin:0}
+
+    /* Price list */
+    .price-table{display:grid; grid-template-columns:1fr auto; gap:8px 16px; background:linear-gradient(180deg,#101012,#0c0c0e); border:1px solid rgba(255,255,255,.03); padding:18px; border-radius:var(--radius)}
+    .price-table div{padding:8px 0; border-bottom:1px dashed rgba(255,255,255,.03)}
+    .price-table div:nth-last-child(-n+2){border-bottom:none}
+
+    /* Gallery */
+    .gallery{grid-template-columns:repeat(12, 1fr)}
+    .gallery a{grid-column: span 4 / span 4; border-radius:12px; overflow:hidden; border:1px solid #222; display:block; transform:translateZ(0)}
+    .gallery img{height:100%; aspect-ratio: 4 / 5; object-fit:cover; transition:transform .35s ease}
+    .gallery a:hover img{transform:scale(1.06)}
+
+    /* Lightbox */
+    .lightbox{position:fixed; inset:0; background:rgba(0,0,0,.88); display:none; align-items:center; justify-content:center; z-index:100}
+    .lightbox img{max-height:90vh; max-width:92vw; border-radius:12px; box-shadow:0 18px 50px rgba(0,0,0,.6)}
+
+    /* Team */
+    .team{grid-template-columns:repeat(12, 1fr)}
+    .barber{grid-column: span 4 / span 4; background:linear-gradient(180deg,#141416,#101013); border:1px solid rgba(255,255,255,.03); padding:16px; border-radius:var(--radius)}
+    .barber img{width:100%; aspect-ratio:1/1; object-fit:cover; object-position:center; border-radius:10px; margin-bottom:12px}
+    .barber img.avatar-left{object-position:left center}
+    .barber img.avatar-right{object-position:right center}
+    .barber h4{margin:6px 0}
+
+    /* Testimonials */
+    .testis{display:grid; grid-template-columns:repeat(3, 1fr); gap:14px}
+    .quote{background:linear-gradient(180deg,#141416,#101013); border:1px solid rgba(255,255,255,.03); border-radius:var(--radius); padding:16px}
+    .stars{font-size:1rem; letter-spacing:2px; color:var(--gold)}
+
+    /* Contact card */
+    .contact-card{background:linear-gradient(180deg,#121215,#0e0e10); border:1px solid rgba(255,255,255,.03); border-radius:var(--radius); padding:18px; box-shadow:var(--shadow)}
+
+    /* Footer */
+    footer{padding:36px 0; border-top:1px solid rgba(255,255,255,.02); background:#0a0a0c}
+    .footer-grid{display:grid; gap:14px; grid-template-columns:2fr 1fr 1fr}
+    .socials{display:flex; gap:8px; flex-wrap:wrap}
+    .socials a{border:1px solid #2a2a30; padding:8px 10px; border-radius:10px}
+
+    /* Utilities */
+    .muted{color:#a9a9b2}
+    .pill{display:inline-flex; padding:7px 10px; border-radius:999px; border:1px solid #29292e; gap:8px; align-items:center}
+    .hide{display:none}
+
+    /* Animations - slide from sides */
+    .reveal{opacity:0; transform:translateY(12px); transition:opacity .55s cubic-bezier(.2,.9,.2,1), transform .55s cubic-bezier(.2,.9,.2,1)}
+    .reveal.slide-left{transform:translateX(-26px) translateY(8px)}
+    .reveal.slide-right{transform:translateX(26px) translateY(8px)}
+    .reveal.in{opacity:1; transform:none}
+
+    /* small stagger helper */
+    .reveal[data-delay="1"]{transition-delay:.06s}
+    .reveal[data-delay="2"]{transition-delay:.12s}
+    .reveal[data-delay="3"]{transition-delay:.18s}
+
+    /* Responsive */
+    @media (max-width: 990px){
+      nav ul{display:none}
+      .hamburger{display:flex}
+      .mobile{position:fixed; inset:68px 12px auto 12px; background:#0e0e10; border:1px solid #28282d; border-radius:12px; padding:12px; display:none; flex-direction:column; z-index:50}
+      .mobile a{padding:12px; border-radius:12px}
+      .service-card, .barber{grid-column: span 6 / span 6}
+      .gallery a{grid-column: span 6 / span 6}
+      .testis{grid-template-columns:1fr}
+      .footer-grid{grid-template-columns:1fr}
+    }
+    @media (max-width: 620px){
+      .service-card, .barber, .gallery a{grid-column: span 12 / span 12}
+      .two{grid-template-columns:1fr}
+      .hero .content{padding:28px 0}
+      .hero .content .panel{padding:18px}
+      .title{font-size:clamp(1.4rem, 6.2vw, 2.2rem)}
+      .title--brand{font-size:1rem}
+    }
+  </style>
+</head>
+<body>
+  <a class="skip-link" href="#maincontent" style="position:absolute;left:-10000px;top:auto;width:1px;height:1px;overflow:hidden;">Preskoči na sadržaj</a>
+  <!-- Topbar -->
+  <div class="topbar" id="top">
+    <div class="container wrap reveal slide-right" data-delay="1">
+      <div>📍 Save Kovačevića 40, Vranje 17501 &nbsp;•&nbsp; ⏰ Radno vreme: Ponedeljak–Petak: 09:00–20:00 • Subota: 09:00–18:00</div>
+      <div>
+        <a class="pill" href="tel:+38162447907">📞 062 447907</a>
+        <a class="pill" href="https://wa.me/38162447907?text=Zdravo" target="_blank" rel="noopener">💬 WhatsApp</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Header -->
+  <header>
+    <div class="container nav">
+      <div class="brand">
+        <div class="logo reveal slide-left" data-delay="1">VV</div>
+        <h1>Vruc Vetar</h1>
+      </div>
+      <nav>
+        <ul>
+          <li><a href="#usluge">Usluge</a></li>
+          <li><a href="#cene">Cene</a></li>
+          <li><a href="#galerija">Galerija</a></li>
+          <li><a href="#tim">Tim</a></li>
+          <li><a href="#kontakt">Kontakt</a></li>
+        </ul>
+      </nav>
+      <div class="cta">
+        <a class="btn btn-ghost" href="tel:+38162447907">Pozovi</a>
+        <a class="btn" href="https://www.instagram.com/" target="_blank" rel="noopener">Instagram</a>
+        <button aria-label="Menu" class="hamburger" id="hamburger" type="button">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </div>
+    <div class="mobile container" id="mobileMenu" aria-hidden="true">
+      <a href="#usluge">Usluge</a>
+      <a href="#cene">Cene</a>
+      <a href="#galerija">Galerija</a>
+      <a href="#tim">Tim</a>
+      <a href="#kontakt">Kontakt</a>
+    </div>
+  </header>
+
+  <!-- Hero -->
+  <section class="hero" id="maincontent">
+    <div class="content container">
+      <div class="panel reveal slide-left" data-delay="2">
+        <div class="kicker">Barbershop • Vranje</div>
+
+        <!-- Split title so 'Vruc Vetar' is on its own line -->
+        <h2 class="title">Muški frizerski salon<br><span class="title--brand">Vruc Vetar</span></h2>
+
+        <!-- Removed "mesto gde klasično susreće moderno" from this subtitle -->
+        <p class="subtitle">Dobrodošli u <strong>Vruc Vetar</strong>. Šišanje modernih i klasičnih frizura. Brijanje, šišanje brade i oblikovanje brade. Pranje i feniranje kose.</p>
+
+        <div class="actions">
+          <a class="btn btn-gold" href="tel:+38162447907">Pozovi • 062 447907</a>
+          <a class="btn" href="https://wa.me/38162447907" target="_blank" rel="noopener">WhatsApp</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Services -->
+  <section id="usluge" class="container">
+    <div class="section-title reveal slide-right" data-delay="2">
+      <h2>Usluge</h2>
+      <p>Klasične i moderne tehnike za tvoj stil</p>
+    </div>
+    <div class="grid services">
+      <div class="service-card reveal slide-left" data-delay="1">
+        <div class="price">500 RSD</div>
+        <h3>Obično šišanje</h3>
+        <p>Osnovno šišanje makazama i mašinicom, oblikovanje i završni dodir.</p>
+      </div>
+      <div class="service-card reveal slide-right" data-delay="2">
+        <div class="price">700 RSD</div>
+        <h3>Šišanje (fade)</h3>
+        <p>Precizan fade, konture i finalni styling.</p>
+      </div>
+      <div class="service-card reveal slide-left" data-delay="3">
+        <div class="price">Po dogovoru</div>
+        <h3>Sređivanje brade</h3>
+        <p>Konturisanje i skraćivanje, nega brade i završni proizvodi.</p>
+      </div>
+      <div class="service-card reveal slide-right" data-delay="1">
+        <div class="price">Po dogovoru</div>
+        <h3>Kraljevsko brijanje</h3>
+        <p>Brijanje brijačem, topli peškiri i premium aftershave.</p>
+      </div>
+      <div class="service-card reveal slide-left" data-delay="2">
+        <div class="price">Po dogovoru</div>
+        <h3>Pranje i feniranje</h3>
+        <p>Pranje kose, feniranje i styling za svaki tip kose.</p>
+      </div>
+      <div class="service-card reveal slide-right" data-delay="3">
+        <div class="price">Po dogovoru</div>
+        <h3>Kids cut</h3>
+        <p>Pažljivo šišanje za decu do 12 godina.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Price list -->
+  <section id="cene" class="container">
+    <div class="section-title reveal slide-left" data-delay="2"><h2>Cenovnik</h2><p>Transparentno i fer</p></div>
+    <div class="card">
+      <div class="price-table reveal slide-right" data-delay="3">
+        <div>Obično šišanje</div><div>500 RSD</div>
+        <div>Šišanje (fade)</div><div>700 RSD</div>
+        <div>Sređivanje brade</div><div>Po dogovoru</div>
+        <div>Kraljevsko brijanje</div><div>Po dogovoru</div>
+        <div>Pranje i feniranje</div><div>Po dogovoru</div>
+      </div>
+      <p class="muted" style="margin-top:10px">* Cene su orijentacione i mogu se promeniti.</p>
+    </div>
+  </section>
+
+  <!-- Gallery -->
+  <section id="galerija" class="container">
+    <div class="section-title reveal slide-right" data-delay="2"><h2>Galerija</h2><p>Naš rad, tvoj sledeći look</p></div>
+    <div class="grid gallery">
+      <a href="assets/slika1.webp" class="reveal slide-left" data-delay="1"><img alt="Fade haircut — Vruc Vetar" src="assets/slika1.webp" loading="lazy" /></a>
+      <a href="assets/slika2.webp" class="reveal slide-right" data-delay="2"><img alt="Interior — Vruc Vetar" src="assets/slika2.webp" loading="lazy" /></a>
+      <a href="assets/slika3.webp" class="reveal slide-left" data-delay="3"><img alt="Beard trim — Vruc Vetar" src="assets/slika3.webp" loading="lazy" /></a>
+    </div>
+    <div class="lightbox" id="lightbox"><img alt="preview" src="" /></div>
+  </section>
+
+  <!-- Team -->
+  <section id="tim" class="container">
+    <div class="section-title reveal slide-left" data-delay="2"><h2>Naš tim</h2><p>Iskustvo i preciznost</p></div>
+    <div class="grid team">
+      <div class="barber reveal slide-right" style="grid-column: span 6 / span 6;" data-delay="1">
+        <img src="assets/slika4.webp" alt="Igor Djordjevic" class="avatar-left" />
+        <h4>Igor Djordjevic</h4>
+      </div>
+      <div class="barber reveal slide-left" style="grid-column: span 6 / span 6;" data-delay="2">
+        <img src="assets/slika4.webp" alt="Mladen Pavlovic" class="avatar-right" />
+        <h4>Mladen Pavlovic</h4>
+      </div>
+    </div>
+  </section>
+
+  <!-- Testimonials -->
+  <section class="container">
+    <div class="section-title reveal slide-right" data-delay="1"><h2>Šta kažu klijenti</h2><p>Ocena 5 / 5</p></div>
+    <div class="testis">
+      <div class="quote reveal slide-left" data-delay="1"><div class="stars">★★★★★</div><p><strong>B. Đorđević</strong><br>Odlična usluga, pozitivno okruženje, vrhunski majstori ! Svaka preporuka 🤌</p></div>
+      <div class="quote reveal slide-right" data-delay="2"><div class="stars">★★★★★</div><p><strong>Predrag P.</strong><br>De lux usluga vrhunskih majstora!!!</p></div>
+      <div class="quote reveal slide-left" data-delay="3"><div class="stars">★★★★★</div><p><strong>Snezana Dj.</strong><br>Najbolji su</p></div>
+      <div class="quote reveal slide-right" data-delay="1"><div class="stars">★★★★★</div><p><strong>Maja M.</strong><br>Sve pohvale ! :)</p></div>
+    </div>
+  </section>
+
+  <!-- Contact (replaces booking) -->
+  <section id="kontakt" class="container">
+    <div class="section-title reveal slide-left" data-delay="2"><h2>Kontakt</h2><p>Pozovi ili pošalji poruku putem WhatsApp-a</p></div>
+    <div class="grid" style="grid-template-columns:1fr; gap:18px">
+      <div class="contact-card reveal slide-right" data-delay="2">
+        <h3>Podaci</h3>
+        <p>📍 <strong>Save Kovačevića 40</strong>, 17501 Vranje</p>
+        <p>📞 <a href="tel:+38162447907">062 447907</a></p>
+        <p>⏰ Ponedeljak–Petak: 09:00–20:00<br/>Subota: 09:00–18:00 • Nedelja: zatvoreno</p>
+        <div style="margin-top:12px">
+          <a class="btn" href="https://wa.me/38162447907" target="_blank" rel="noopener">WhatsApp</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <div class="container footer-grid">
+      <div>
+        <div class="brand" style="margin-bottom:10px">
+          <div class="logo">VV</div>
+          <h1>Vruc Vetar</h1>
+        </div>
+        <p class="muted"> Muski frizerski salon u Vranju. Klasično šišanje, brijanje brijačem i sređivanje brade u modernom prostoru.</p>
+        <div class="socials">
+          <a href="https://www.instagram.com/" target="_blank" rel="noopener">Instagram</a>
+          <a href="https://www.facebook.com/" target="_blank" rel="noopener">Facebook</a>
+          <a href="https://t.me/" target="_blank" rel="noopener">Telegram</a>
+        </div>
+      </div>
+      <div>
+        <h4>Radno vreme</h4>
+        <p>Ponedeljak–Petak: 09:00–20:00<br/>Subota: 09:00–18:00<br/>Nedelja: Zatvoreno</p>
+      </div>
+      <div>
+        <h4>Kontakt</h4>
+        <p>Save Kovačevića 40, Vranje 17501<br/>
+        062 447907<br/>
+        info@vrucvetar.com</p>
+      </div>
+    </div>
+    <div class="container" style="margin-top:18px; color:#8b8b95; font-size:.9rem">© <span id="year"></span> Vruc Vetar. Sva prava zadržana. — vrucvetar.com</div>
+  </footer>
+
+  <!-- JSON-LD Schema -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Barbershop",
+    "name": "Vruc Vetar Barbershop",
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "Save Kovačevića 40",
+      "postalCode": "17501",
+      "addressLocality": "Vranje",
+      "addressCountry": "RS"
+    },
+    "telephone": "+38162447907",
+    "url": "https://vrucvetar.com",
+    "priceRange": "RSD500-RSD2000",
+    "openingHours": ["Mo-Fr 09:00-20:00","Sa 09:00-18:00"],
+    "image": [
+      "https://images.unsplash.com/photo-1604079628040-94301bb21b91",
+      "https://images.unsplash.com/photo-1616394584738-fc6e612b7005"
+    ]
+  }
+  </script>
+
+  <!-- Scripts -->
+  <script>
+    // Mobile menu toggle
+    const burger = document.getElementById('hamburger');
+    const mobile = document.getElementById('mobileMenu');
+    if (burger && mobile) {
+      burger.setAttribute('aria-expanded', 'false');
+      mobile.style.display = 'none'; // ensure hidden by default
+      burger.addEventListener('click', () => {
+        const isOpen = mobile.style.display === 'flex';
+        mobile.style.display = isOpen ? 'none' : 'flex';
+        burger.setAttribute('aria-expanded', String(!isOpen));
+        mobile.setAttribute('aria-hidden', String(isOpen));
+      });
+    }
+
+    // Reveal animations on scroll (adds slide classes set in markup)
+    const io = new IntersectionObserver((entries)=>{
+      entries.forEach(e=>{
+        if(e.isIntersecting){
+          e.target.classList.add('in');
+          io.unobserve(e.target);
+        }
+      })
+    }, {threshold:.15});
+    document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
+
+    // Lightbox for gallery
+    const lb = document.getElementById('lightbox');
+    const lbImg = lb ? lb.querySelector('img') : null;
+    document.querySelectorAll('.gallery a').forEach(a=>{
+      a.addEventListener('click', (ev)=>{
+        ev.preventDefault();
+        if (!lb || !lbImg) return;
+        lbImg.src = a.href;
+        lb.style.display = 'flex';
+        lb.focus();
+      });
+    });
+    if (lb) {
+      lb.addEventListener('click', ()=>{ lb.style.display='none'; if(lbImg) lbImg.src=''; });
+    }
+
+    // Close lightbox or mobile with Escape
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape') {
+        if (lb && lb.style.display === 'flex') { lb.style.display = 'none'; if(lbImg) lbImg.src = ''; }
+        if (mobile && mobile.style.display === 'flex') { mobile.style.display = 'none'; burger?.setAttribute('aria-expanded','false'); }
+      }
+    });
+
+    // Update footer year
+    document.getElementById('year').textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
