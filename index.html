@@ -3,12 +3,12 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Vruc Vetar Barbershop — Vranje</title>
-  <meta name="description" content="Vruc Vetar je tradicionalni barbershop u Vranju. Klasična i moderna šišanja, brijanje i nega brade." />
+  <title>Vruc Vetar — Vranje</title>
+  <meta name="description" content="Vruc Vetar je muski frizerski salon u Vranju. Klasična i moderna šišanja, brijanje i nega brade." />
   <meta name="theme-color" content="#0a0a0a" />
   <!-- Open Graph -->
   <meta property="og:title" content="Vruc Vetar — Muski frizerski salon, Vranje" />
-  <meta property="og:description" content="Tradicionalni barbershop u Vranju — šišanje, brijanje i nega brade." />
+  <meta property="og:description" content="Muski frizerski salon u Vranju — šišanje, brijanje i nega brade." />
   <meta property="og:type" content="website" />
   <meta property="og:locale" content="sr_RS" />
   <meta property="og:image" content="/assets/hero.png" />
@@ -183,6 +183,44 @@
       .title{font-size:clamp(1.4rem, 6.2vw, 2.2rem)}
       .title--brand{font-size:1rem}
     }
+
+    /* ====== Hero contact redesign styles ====== */
+    .hero-panel{padding:28px; border-radius:14px}
+    .hero-grid{display:grid; grid-template-columns:1fr 360px; gap:22px; align-items:center; margin-top:18px}
+    .hero-left .hero-lead{font-weight:600; margin:6px 0 10px}
+    .hero-features{margin:10px 0 16px; padding-left:18px; color:#d3d3d7}
+    .hero-features li{margin:8px 0}
+
+    /* CTA cluster */
+    .hero-actions{display:flex; gap:10px; flex-wrap:wrap; margin-bottom:10px}
+    .hero-actions .btn{padding:12px 16px; display:inline-grid; place-items:center; gap:4px; text-align:center}
+    .hero-actions .small{font-size:.85rem; opacity:.9}
+
+    /* secondary row */
+    .hero-secondary{display:flex; gap:10px; margin-top:6px}
+    .btn-ghost{padding:10px 12px; border-radius:10px}
+
+    /* Right column: contact cards */
+    .hero-right{display:flex; flex-direction:column; gap:12px}
+    .contact-hero{display:flex; gap:12px; align-items:center; background:linear-gradient(180deg, rgba(255,255,255,0.02), transparent); padding:12px; border-radius:12px; border:1px solid rgba(255,255,255,0.03)}
+    .avatar{width:64px; height:64px; border-radius:12px; display:grid; place-items:center; font-weight:800; font-family:Unbounded; color:#0b0b0b}
+    .avatar-dj{background:linear-gradient(135deg,var(--gold),var(--gold-2))}
+    .avatar-ml{background:linear-gradient(135deg,var(--accent),var(--gold-2))}
+
+    .contact-info .name{font-weight:700; margin-bottom:2px}
+    .contact-info .role{font-size:.90rem}
+    .phone-link{display:inline-block; margin-top:6px; font-weight:600}
+    .contact-row{margin-top:8px; display:flex; gap:8px}
+    .small-btn{padding:8px 10px; border-radius:10px; border:1px solid rgba(255,255,255,0.04); background:#0e0e10; font-weight:600; text-decoration:none}
+
+    /* small responsive tweaks */
+    @media (max-width: 990px){
+      .hero-grid{grid-template-columns:1fr; gap:14px}
+      .hero-right{order:2}
+      .hero-left{order:1}
+      .avatar{width:56px;height:56px}
+      .hero-actions .btn{width:48%}
+    }
   </style>
 </head>
 <body>
@@ -192,7 +230,8 @@
     <div class="container wrap reveal slide-right" data-delay="1">
       <div>📍 Save Kovačevića 40, Vranje 17501 &nbsp;•&nbsp; ⏰ Radno vreme: Ponedeljak–Petak: 09:00–20:00 • Subota: 09:00–18:00</div>
       <div>
-        <a class="pill" href="tel:+38162447907">📞 062 447907</a>
+        <a class="pill" href="tel:+38162447907">📞 062 447907 (Đole)</a>
+        <a class="pill" href="tel:+381659177816">📞 065 917 7816 (Mladen)</a>
         <a class="pill" href="https://wa.me/38162447907?text=Zdravo" target="_blank" rel="noopener">💬 WhatsApp</a>
       </div>
     </div>
@@ -231,22 +270,24 @@
     </div>
   </header>
 
-  <!-- Hero -->
-  <section class="hero" id="maincontent">
+  <!-- Hero (REDESIGN) -->
+  <section class="hero" id="maincontent" aria-label="Hero — Vruc Vetar">
     <div class="content container">
-      <div class="panel reveal slide-left" data-delay="2">
+      <div class="panel hero-panel reveal" data-delay="2" role="region" aria-labelledby="hero-title">
         <div class="kicker">Barbershop • Vranje</div>
+        <h2 id="hero-title" class="title">Muški frizerski salon<br><span class="title--brand">Vruc Vetar</span></h2>
+        <p class="subtitle">Brzo i profesionalno — zakažite termin direktno pozivom ili porukom.</p>
 
-        <!-- Split title so 'Vruc Vetar' is on its own line -->
-        <h2 class="title">Muški frizerski salon<br><span class="title--brand">Vruc Vetar</span></h2>
-
-        <!-- Removed "mesto gde klasično susreće moderno" from this subtitle -->
-        <p class="subtitle">Dobrodošli u <strong>Vruc Vetar</strong>. Šišanje modernih i klasičnih frizura. Brijanje, šišanje brade i oblikovanje brade. Pranje i feniranje kose.</p>
-
-        <div class="actions">
-          <a class="btn btn-gold" href="tel:+38162447907">Pozovi • 062 447907</a>
-          <a class="btn" href="https://wa.me/38162447907" target="_blank" rel="noopener">WhatsApp</a>
+        <div style="display:flex;gap:12px;justify-content:center;flex-wrap:wrap;margin-top:18px">
+          <a class="btn btn-gold" href="tel:+38162447907" aria-label="Pozovi Đole — 062 447 907">📞 Đole<br><span class="small">062 447 907</span></a>
+          <a class="btn btn-gold" href="tel:+381659177816" aria-label="Pozovi Mladen — 065 917 7816">📞 Mladen<br><span class="small">065 917 7816</span></a>
         </div>
+
+        <div style="display:flex;gap:10px;justify-content:center;margin-top:10px">
+          <a class="btn btn-ghost" href="https://wa.me/38162447907" target="_blank" rel="noopener" aria-label="WhatsApp Đole">💬 WhatsApp — Đole</a>
+          <a class="btn btn-ghost" href="https://wa.me/381659177816" target="_blank" rel="noopener" aria-label="WhatsApp Mladen">💬 WhatsApp — Mladen</a>
+        </div>
+
       </div>
     </div>
   </section>
@@ -282,11 +323,6 @@
         <div class="price">Po dogovoru</div>
         <h3>Pranje i feniranje</h3>
         <p>Pranje kose, feniranje i styling za svaki tip kose.</p>
-      </div>
-      <div class="service-card reveal slide-right" data-delay="3">
-        <div class="price">Po dogovoru</div>
-        <h3>Kids cut</h3>
-        <p>Pažljivo šišanje za decu do 12 godina.</p>
       </div>
     </div>
   </section>
@@ -350,10 +386,11 @@
       <div class="contact-card reveal slide-right" data-delay="2">
         <h3>Podaci</h3>
         <p>📍 <strong>Save Kovačevića 40</strong>, 17501 Vranje</p>
-        <p>📞 <a href="tel:+38162447907">062 447907</a></p>
+        <p>📞 <a href="tel:+38162447907">062 447907 (Đole)</a><br/>📞 <a href="tel:+381659177816">065 917 7816 (Mladen)</a></p>
         <p>⏰ Ponedeljak–Petak: 09:00–20:00<br/>Subota: 09:00–18:00 • Nedelja: zatvoreno</p>
         <div style="margin-top:12px">
-          <a class="btn" href="https://wa.me/38162447907" target="_blank" rel="noopener">WhatsApp</a>
+          <a class="btn" href="https://wa.me/38162447907" target="_blank" rel="noopener">WhatsApp Đole</a>
+          <a class="btn" href="https://wa.me/381659177816" target="_blank" rel="noopener">WhatsApp Mladen</a>
         </div>
       </div>
     </div>
@@ -381,7 +418,8 @@
       <div>
         <h4>Kontakt</h4>
         <p>Save Kovačevića 40, Vranje 17501<br/>
-        062 447907<br/>
+        062 447907 (Đole)<br/>
+        065 917 7816 (Mladen)<br/>
         info@vrucvetar.com</p>
       </div>
     </div>
@@ -401,7 +439,7 @@
       "addressLocality": "Vranje",
       "addressCountry": "RS"
     },
-    "telephone": "+38162447907",
+    "telephone": ["+38162447907", "+381659177816"],
     "url": "https://vrucvetar.com",
     "priceRange": "RSD500-RSD2000",
     "openingHours": ["Mo-Fr 09:00-20:00","Sa 09:00-18:00"],
