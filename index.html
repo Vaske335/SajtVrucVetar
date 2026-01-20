@@ -111,10 +111,35 @@
     .service-card h3{margin:8px 0 6px}
     .service-card p{color:#bcbcc4; margin:0}
 
-    /* Price list */
-    .price-table{display:grid; grid-template-columns:1fr auto; gap:8px 16px; background:linear-gradient(180deg,#101012,#0c0c0e); border:1px solid rgba(255,255,255,.03); padding:18px; border-radius:var(--radius)}
-    .price-table div{padding:8px 0; border-bottom:1px dashed rgba(255,255,255,.03)}
-    .price-table div:nth-last-child(-n+2){border-bottom:none}
+    /* Price list (updated layout) */
+    .price-table{
+      display:grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap:10px 14px;
+      background:linear-gradient(180deg,#101012,#0c0c0e);
+      border:1px solid rgba(255,255,255,.03);
+      padding:18px;
+      border-radius:var(--radius)
+    }
+    .price-item{
+      display:flex;
+      align-items:baseline;
+      justify-content:space-between;
+      gap:12px;
+      padding:10px 0;
+      border-bottom:1px dashed rgba(255,255,255,.05);
+    }
+    .price-item:nth-last-child(-n+2){border-bottom:none}
+    .price-name{color:#e9e9ee; font-weight:500}
+    .price-value{
+      font-weight:800;
+      color:#111;
+      background:linear-gradient(135deg,var(--gold),var(--gold-2));
+      padding:6px 10px;
+      border-radius:999px;
+      font-size:.9rem;
+      white-space:nowrap;
+    }
 
     /* Gallery */
     .gallery{grid-template-columns:repeat(12, 1fr)}
@@ -174,6 +199,9 @@
       .gallery a{grid-column: span 6 / span 6}
       .testis{grid-template-columns:1fr}
       .footer-grid{grid-template-columns:1fr}
+      .price-table{grid-template-columns:1fr} /* 1 column for pricing on tablets/phones */
+      .price-item:nth-last-child(-n+2){border-bottom:1px dashed rgba(255,255,255,.05)}
+      .price-item:last-child{border-bottom:none}
     }
     @media (max-width: 620px){
       .service-card, .barber, .gallery a{grid-column: span 12 / span 12}
@@ -332,11 +360,22 @@
     <div class="section-title reveal slide-left" data-delay="2"><h2>Cenovnik</h2><p>Transparentno i fer</p></div>
     <div class="card">
       <div class="price-table reveal slide-right" data-delay="3">
-        <div>Obično šišanje</div><div>500 RSD</div>
-        <div>Šišanje (fade)</div><div>700 RSD</div>
-        <div>Sređivanje brade</div><div>Po dogovoru</div>
-        <div>Kraljevsko brijanje</div><div>Po dogovoru</div>
-        <div>Pranje i feniranje</div><div>Po dogovoru</div>
+        <div class="price-item"><span class="price-name">Šišanje</span><span class="price-value">600 RSD</span></div>
+        <div class="price-item"><span class="price-name">Šišanje (fade)</span><span class="price-value">800 RSD</span></div>
+
+        <div class="price-item"><span class="price-name">Moderno šišanje</span><span class="price-value">800 RSD</span></div>
+        <div class="price-item"><span class="price-name">Šišanje na nulu</span><span class="price-value">500 RSD</span></div>
+
+        <div class="price-item"><span class="price-name">Brijanje</span><span class="price-value">600 RSD</span></div>
+        <div class="price-item"><span class="price-name">Brijanje glave</span><span class="price-value">600 RSD</span></div>
+
+        <div class="price-item"><span class="price-name">Fazoniranje</span><span class="price-value">200 RSD</span></div>
+        <div class="price-item"><span class="price-name">Pranje kose</span><span class="price-value">300 RSD</span></div>
+
+        <div class="price-item"><span class="price-name">Šišanje brade</span><span class="price-value">300 RSD</span></div>
+        <div class="price-item"><span class="price-name">Šišanje brade na nulu</span><span class="price-value">200 RSD</span></div>
+
+        <div class="price-item"><span class="price-name">Oblikovanje brade sa brijanjem</span><span class="price-value">500 RSD</span></div>
       </div>
       <p class="muted" style="margin-top:10px">* Cene su orijentacione i mogu se promeniti.</p>
     </div>
